@@ -1,10 +1,10 @@
-import { createConnection } from 'mysql2-promise';
+import { createConnection } from 'mysql2';
 import dbConfig from '../configs/dbConfig.js';
 //DB;
 async function query(sql,params ) {
     const connection = await createConnection(dbConfig);
-    const [results, ] = await connection.execute(sql, params);
-    return results;
+    const result = await connection.query(sql,params);
+    return result;
   }
 
   export {
